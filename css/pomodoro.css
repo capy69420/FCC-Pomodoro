@@ -1,0 +1,29 @@
+
+#control-buttons {
+  background: cyan;
+  border-style: solid;
+  border-color: blue;
+}
+
+body {
+  background: #ddd;
+  margin: 10%;
+  padding: 10%;
+}
+
+#countDown {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+#countDown #timeLeft {
+  color: #00850D;
+  font: bold 4em Tahoma;
+  left: 0;
+  line-height: 4em;
+  position: relative;
+  text-align: center;
+  top: 50%;
+  left: 15%;
+}

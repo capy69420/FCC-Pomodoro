@@ -1,0 +1,4 @@
+2017/08/25
+  - Session and break buttons added
+2017/08/15
+  - Arc size needs to be fixed
