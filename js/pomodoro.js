@@ -49,6 +49,7 @@ let clock = {
     if(clock.seconds > clock.end) {
       cv.clearRect(0,0,canvas.width,canvas.height)
       clearInterval(countDown);
+      clock.seconds = 0;
       // start break!
       if (clock.breakTime) {
         clock.breakTime = false;
@@ -61,6 +62,7 @@ let clock = {
         cv.fillText(clock.pomodoros+' pomodoros done',canvas.width/2,canvas.height/2);
         resetButtons();
         clock.breakTime = true;
+        console.log(clock)
       }
     } else {
       let color = (clock.seconds*15+8);
@@ -108,7 +110,7 @@ $('#start').click( function(){
   );
 })
 $('#reset').click(function() {
-  disableTimeChange(false);
+  resetButtons();
   let time = $(this).data('time');
   clock.start = 0;
   clock.end = time;
