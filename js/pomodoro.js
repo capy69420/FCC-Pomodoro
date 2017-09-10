@@ -18,6 +18,12 @@ function zeroFill(number, width) {
   return number + '';
 }
 
+function resetButtons() {
+  $('#start').html('Start');
+  $('#start').prop('disabled',false);
+  disableTimeChange(false);
+}
+
 function startBreak() {
   clock.start = 0;
   clock.current = 0;
@@ -34,16 +40,28 @@ let clock = {
   end: 60*25,
   current: 0,
   seconds: 0,
+  breakTime: true,
+  pomodoros:  0,
 
   draw: function(clr,justUpdate=false) {
     let canvas = $("#canvas").get(0);
     let cv = canvas.getContext("2d");
     if(clock.seconds > clock.end) {
       cv.clearRect(0,0,canvas.width,canvas.height)
-      cv.fillText('done',canvas.width/2,canvas.height/2);
       clearInterval(countDown);
       // start break!
-      startBreak();
+      if (clock.breakTime) {
+        clock.breakTime = false;
+        document.getElementById('clock_alarm').play();
+        cv.fillText('break time!',canvas.width/2,canvas.height/2);
+        startBreak();
+      } else {
+        clearInterval(countDown);
+        clock.pomodoros++;
+        cv.fillText(clock.pomodoros+' pomodoros done',canvas.width/2,canvas.height/2);
+        resetButtons();
+        clock.breakTime = true;
+      }
     } else {
       let color = (clock.seconds*15+8);
       let hex = color.toString(16);
@@ -68,7 +86,7 @@ let clock = {
     }
   }
 }
-// enable or disable the buttons if disable is true
+// enable or disable the increase/decrease buttons if disable is true
 function disableTimeChange(disable) {
   $("#increaseMin").prop('disabled', disable)
   $("#decreaseMin").prop('disabled', disable)
@@ -78,6 +96,7 @@ function disableTimeChange(disable) {
 
 let countDown;
 $('#start').click( function(){
+  $(this).prop('disabled', true)
   disableTimeChange(true);
   let time = $(this).data('time');
   clock.start = 0;
@@ -104,6 +123,8 @@ $('#reset').click(function() {
   clearInterval(countDown);
 });
 $('#pause').click(function(){
+  $('#start').html('Resume');
+  $('#start').prop('disabled',false);
   clearInterval(countDown);
 })
 

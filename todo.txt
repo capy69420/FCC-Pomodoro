@@ -1,3 +1,9 @@
+2017/09/01
+  - data-time back to 25min and 5min
+2017/08/31
+  - repeating pomodoro bug fixed
+  - pomodoro counter added
+  - done sound added
 2017/08/25
   - Session and break buttons added
 2017/08/15

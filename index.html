@@ -15,22 +15,25 @@
   <p id="timeLeft"></p>
 </div>
 <div id="control-buttons" class="container-fluid">
-  <button id="reset" data-time="1500">Reset</button>
-  <button id="start" data-time="1500">Start</button>
-  <button id="pause">Pause</button>
+  <div class="container-fluid">
+    <button class="btn-warning" id="reset" data-time="1500">Reset</button>
+    <button class="btn-primary" id="start" data-time="1500">Start</button>
+    <button class="btn-primary" id="pause">Pause</button>
+  </div>
   <div id="sessionDiv" class="container-fluid">
     <p>Session</p>
     <span id="session">25:00</span>
-    <button id="increaseMin">+</button>
-    <button id="decreaseMin">-</button>
+    <button class="btn-info" id="increaseMin">+</button>
+    <button class="btn-info"id="decreaseMin">-</button>
   </div>
   <div id="breakDiv" class="container-fluid">
     <p>Break</p>
     <span id="break" data-time="300">05:00</span>
-    <button id="increaseBreak">+</button>
-    <button id="decreaseBreak">-</button>
+    <button class="btn-info" id="increaseBreak">+</button>
+    <button class="btn-info" id="decreaseBreak">-</button>
   </div>
 </div>
-<script src="js/pomodoro.js"></script>
+ <audio id="clock_alarm" src="https://github.com/doraani/FCC-Pomodoro/raw/master/mp3/Cuckoo%20Clock-SoundBible.com-1776874523.mp3"></audio>
+ <script src="js/pomodoro.js"></script>
 </body>
 </html>

@@ -3,6 +3,8 @@
   background: cyan;
   border-style: solid;
   border-color: blue;
+  margin: 5%;
+  padding: 1%;
 }
 
 body {
